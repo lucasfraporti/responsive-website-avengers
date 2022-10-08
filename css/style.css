@@ -51,10 +51,12 @@ header a.logo{
 
 header a.logo img{
     width: 100%;
+    margin-top: -7px;
 }
 
 .menu{
     text-align: center;
+    margin-right: 10px;
 }
 
 .menu a{
@@ -88,7 +90,7 @@ header a.logo img{
 }
 
 .galeria figure{
-    max-width: 420px;
+    max-width: 500px;
     margin: 10px auto;
     /*
     width: 412px;
@@ -112,215 +114,58 @@ footer p{
     color: #FFF;
 }
 
-/*
-No mínimo 1800px e no máximo 1900px para usar esse bloco CSS
-Monitor: Ultrawide
-2560px (resolução 4K) é o tamanho máximo do container, então outras resoluções acima não serão suportadas até o momento
-*/
-@media only screen and (min-width: 1800px) and (max-width: 2560px){
-    body, ul, p{
-        font-size: 1.15rem;
-    }
+/* Aplicação do flexbox */
+.galeria{
+    display: flex;
+    /* Direção em linhas, portanto ficará uma do lado da outra */
+    flex-direction: row;
+    /* Os itens irão quebrar a linha se ficarem muito apertados */
+    flex-wrap: wrap;
+    /* Alinhamento dos itens ao longo do eixo principal */
+    justify-content: center;
+    /* Alinhamento dos itens de acordo com o eixo transversal */
+    /* Todos vão estar alinhado de acordo com o primeiro item, neste caso */
+    align-items: flex-start;
+}
 
-    li{
-        display: inline;
-        font-size: 1.45rem;
-    }
-
-    .banner h1{
-        font-size: 1.25rem;
-    }
-
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    header a.logo{
-        width: 225px;
-        margin: 0 2%;
-    }
-
+@media only screen and (min-width: 465px){
+    /* Colocando na lista um item do lado do outro */
     .menu li{
-        padding-left: 2rem;
+        display: inline-block;
     }
 
-    nav{
-        margin: 0 2%;
+    header .logo img{
+        width: 75%;
+        margin-top: 0.5px;
     }
 
-    .galeria{
-        display: flex;
-        flex-flow: row wrap;
-    }
-
+    /* Duas imagens, uma do lado da outra */
+    /* figure é para indexação do google, usar div se a imagem não for relevante */
     .galeria figure{
-        /* 800px pois é o tamanho máximo da largura da imagem original */
-        /* de 1800px até 2399 são duas imagens lado a lado, 2400px em diante são 3 imagens lado a lado */
-        max-width: 800px;
-    }
-    
-    .galeria figure img{
-        width: 100%;
-    }
-
-    footer p{
-        font-size: 1.15rem;
+        width: 33%;
+        /* inline-block, se tiver espaço ele alinha do lado as imagens */
+        display: inline-block;
+        margin-top: 20px;
     }
 }
 
-/*
-No mínimo 1200px e no máximo 1800px para usar esse bloco CSS
-Monitor: Convencional
-*/
-@media only screen and (min-width: 1200px) and (max-width: 1800px){
-    body, ul, p{
-        font-size: 1.15rem;
+@media only screen and (min-width: 768px){
+    .galeria figure{
+        width: 49%;
     }
 
-    li{
-        display: inline;
-        font-size: 1.55rem;
-    }
-
-    .banner h1{
-        font-size: 1.35rem;
+    /* logo para um lado e menu para o outro */
+    header a.logo{
+        float: left;
     }
 
     header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    header a.logo{
-        width: 255px;
-        margin: 0 2%;
-    }
-
-    .menu li{
-        padding-left: 2rem;
+        height: 75px;
     }
 
     nav{
-        margin: 0 2%;
-    }
-
-    .galeria{
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .galeria figure{
-        /* 1290px até 1800px aparece duas imagens lado a lado */
-        max-width: 645px;
-    }
-    
-    .galeria figure img{
-        width: 100%;
-    }
-
-    footer p{
-        font-size: 1.20rem;
-    }
-}
-
-/*
-No mínimo 900px e no máximo 1200px para usar esse bloco CSS
-Monitor: Tablet deitado
-*/
-@media only screen and (min-width: 900px) and (max-width: 1200px){
-    body, ul, p{
-        font-size: 1.1rem;
-    }
-
-    li{
-        display: inline;
-        font-size: 1.65rem;
-    }
-
-    .banner h1{
-        font-size: 1.45rem;
-    }
-
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    header a.logo{
-        width: 225px;
-        margin: 0 2%;
-    }
-
-    .menu li{
-        padding-left: 2rem;
-    }
-
-    nav{
-        margin: 0 2%;
-    }
-
-    .galeria{
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    .galeria figure{
-        /* uma imagem embaixo da outra */
-        max-width: 800px;
-    }
-    
-    .galeria figure img{
-        width: 100%;
-    }
-
-    footer p{
-        font-size: 1.25rem;
-    }
-}
-
-/*
-No mínimo 600px e no máximo 900px para usar esse bloco CSS
-Monitor: Tablet de pé
-*/
-@media only screen and (min-width: 600px) and (max-width: 900px){
-    body, ul, p{
-        font-size: 1.1rem;
-    }
-
-    li{
-        display: inline;
-        font-size: 1.45rem;
-    }
-
-    .banner h1{
-        font-size: 1.35rem;
-    }
-
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    header a.logo{
-        width: 200px;
-        margin: 0 2%;
-    }
-
-    .menu li{
-        padding-left: 2rem;
-    }
-
-    .galeria figure{
-        /* uma imagem embaixo da outra */
-        max-width: 575px;
-    }
-
-    footer p{
-        font-size: 1.30rem;
+        float: right;
+        /* margin-top: 25px;
+        margin-right: 20px; */
     }
 }
